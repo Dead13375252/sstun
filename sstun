@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SSTUN — Автозвук | Тонировка | Bi-LED линзы | Казань</title>
+<meta name="description" content="SSTUN — детейлинг студия в Казани. Автозвук, тонировка, Bi-LED линзы, шумоизоляция, сигнализации, полировка.">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Montserrat', sans-serif;
+    background: #0a0a0a;
+    color: #fff;
+    overflow-x: hidden;
+  }
+  a { text-decoration: none; color: inherit; }
+
+  .hero {
+    min-height: 100vh;
+    background: linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.92)),
+                url('https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=1600') center/cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 40px 20px;
+    position: relative;
+  }
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 180px;
+    background: linear-gradient(transparent, #0a0a0a);
+  }
+  .hero-logo {
+    max-width: 480px;
+    width: 85%;
+    margin-bottom: 40px;
+    filter: drop-shadow(0 10px 35px rgba(230,0,30,0.45));
+  }
+  .hero h1 {
+    font-size: clamp(30px, 6vw, 64px);
+    font-weight: 900;
+    line-height: 1.05;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 22px;
+  }
+  .hero h1 span { color: #e6001e; }
+  .hero p {
+    font-size: clamp(14px, 1.8vw, 19px);
+    color: #b5b5b5;
+    max-width: 720px;
+    margin-bottom: 40px;
+    font-weight: 300;
+  }
+  .btn {
+    display: inline-block;
+    padding: 18px 48px;
+    background: #e6001e;
+    color: #fff;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    border-radius: 50px;
+    transition: .3s;
+    border: 2px solid #e6001e;
+    font-size: 14px;
+    cursor: pointer;
+  }
+  .btn:hover {
+    background: transparent;
+    color: #e6001e;
+    transform: translateY(-3px);
+    box-shadow: 0 12px 35px rgba(230,0,30,0.4);
+  }
+
+  section { padding: 100px 20px; }
+  .container { max-width: 1200px; margin: 0 auto; }
+  .section-title {
+    font-size: clamp(28px, 4vw, 46px);
+    font-weight: 900;
+    text-transform: uppercase;
+    text-align: center;
+    margin-bottom: 15px;
+    letter-spacing: 2px;
+  }
+  .section-title span { color: #e6001e; }
+  .section-sub {
+    text-align: center;
+    color: #888;
+    margin-bottom: 60px;
+    font-weight: 300;
+    letter-spacing: 1px;
+  }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+  }
+  .service-card {
+    background: linear-gradient(145deg, #141414, #1c1c1c);
+    border: 1px solid #222;
+    border-radius: 18px;
+    padding: 35px 25px;
+    transition: .4s;
+    position: relative;
+    overflow: hidden;
+  }
+  .service-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 4px; height: 100%;
+    background: #e6001e;
+    transform: scaleY(0);
+    transition: .4s;
+    transform-origin: top;
+  }
+  .service-card:hover {
+    transform: translateY(-8px);
+    border-color: #e6001e;
+    box-shadow: 0 22px 45px rgba(230,0,30,0.18);
+  }
+  .service-card:hover::before { transform: scaleY(1); }
+  .service-icon { font-size: 38px; margin-bottom: 18px; }
+  .service-card h3 {
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 10px;
+    letter-spacing: 0.4px;
+    line-height: 1.3;
+  }
+  .service-card p {
+    color: #8a8a8a;
+    font-size: 13.5px;
+    font-weight: 300;
+    line-height: 1.6;
+  }
+
+  .adv-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 30px;
+    text-align: center;
+  }
+  .adv-item h3 {
+    font-size: 44px;
+    color: #e6001e;
+    font-weight: 900;
+    margin-bottom: 10px;
+  }
+  .adv-item p {
+    color: #aaa;
+    font-weight: 300;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 12.5px;
+  }
+
+  .contact {
+    background: linear-gradient(145deg, #141414, #0a0a0a);
+    border-top: 1px solid #1f1f1f;
+    border-bottom: 1px solid #1f1f1f;
+  }
+  .contact-box {
+    max-width: 620px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  .contact-links {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    margin-top: 40px;
+  }
+  .contact-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    padding: 22px;
+    background: #141414;
+    border: 1px solid #222;
+    border-radius: 14px;
+    font-size: 19px;
+    font-weight: 600;
+    transition: .3s;
+  }
+  .contact-link:hover {
+    border-color: #e6001e;
+    background: #1c1c1c;
+    transform: scale(1.02);
+  }
+  .contact-link span { font-size: 24px; }
+
+  footer {
+    text-align: center;
+    padding: 45px 20px;
+    color: #555;
+    font-size: 13px;
+    letter-spacing: 1px;
+  }
+  footer .footer-logo {
+    max-width: 200px;
+    margin: 0 auto 20px;
+    opacity: .7;
+  }
+
+  .fade-up {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: 1s;
+  }
+  .fade-up.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <svg class="hero-logo" viewBox="0 0 1280 420" xmlns="http://www.w3.org/2000/svg">
+    <g fill="#e6001e">
+      <path d="M 60 340 L 200 340 L 260 210 L 130 210 L 160 140 L 300 140 L 340 60 L 130 60 L 40 260 L 170 260 L 130 340 Z"/>
+    </g>
+    <g fill="#ffffff" font-family="Montserrat, Arial, sans-serif" font-weight="900" font-size="200" letter-spacing="6">
+      <text x="380" y="255">SSTUN</text>
+    </g>
+    <g fill="#ffffff" font-family="Montserrat, Arial, sans-serif" font-weight="400" font-size="44" letter-spacing="8">
+      <text x="385" y="340">АВТОЗВУК</text>
+      <text x="700" y="340" fill="#e6001e">|</text>
+      <text x="760" y="340">ТОНИРОВКА</text>
+      <text x="1060" y="340" fill="#e6001e">|</text>
+      <text x="1120" y="340">BI-LED</text>
+    </g>
+  </svg>
+
+  <h1>Детейлинг<br><span>студия</span></h1>
+  <p>Профессиональный автозвук, тонировка, Bi-LED линзы, шумоизоляция и детейлинг автомобилей. Премиальное качество. Казань.</p>
+  <a href="#contact" class="btn">Связаться с нами</a>
+</div>
+
+<section id="services">
+  <div class="container">
+    <h2 class="section-title fade-up">Наши <span>услуги</span></h2>
+    <p class="section-sub fade-up">Полный спектр работ по тюнингу и детейлингу</p>
+    <div class="services-grid">
+      <div class="service-card fade-up">
+        <div class="service-icon">📱</div>
+        <h3>Замена штатной магнитолы на Android</h3>
+        <p>Современные мультимедийные системы с навигацией и поддержкой приложений.</p>
+      </div>
+      <div class="service-card fade-up">
+        <div class="service-icon">🔊</div>
+        <h3>Замена штатной акустики</h3>
+        <p>Качественные динамики и усилители для чистого и мощного звука.</p>
+      </div>
+      <div class="service-card fade-up">
+        <div class="service-icon">🎥</div>
+        <h3>Установка камеры заднего вида</h3>
+        <p>Облегчает парковку и повышает безопасность задним ходом.</p>
+      </div>
+      <div class="service-card fade-up">
+        <div class="service-icon">🛰️</div>
+        <h3>Установка системы обзора 360°</h3>
+        <p>Круговой обзор автомобиля без слепых зон.</p>
+      </div>
+      <div class="service-card fade-up">
+        <div class="service-icon">🔇</div>
+        <h3>Шумо- и виброизоляция</h3>
+        <p>Снижение шума и вибраций для комфортной езды.</p>
+      </div>
+      <div class="service-card fade-up">
+        <div class="service-icon">🔐</div>
+        <h3>Сигнализация с автозапуском</h3>
+        <p>Надёжная защита и дистанционный прогрев двигателя.</p>
+      </div>
+      <div class="service-card fade-up">
+        <div class="service-icon">💡</div>
+        <h3>Контурная подсветка салона</h3>
+        <p>Стильный вид с настраиваемой LED-подсветкой.</p>
+      </div>
+      <div class="service-card fade-up">
+        <div class="service-icon">🌫️</div>
+        <h3>Установка противотуманных фар (ПТФ)</h3>
+        <p>Улучшение видимости в плохих погодных условиях.</p>
+      </div>
+      <div class="service-card fade-up">
+        <div class="service-icon">📹</div>
+        <h3>Установка видеорегистратора</h3>
+        <p>Скрытая или открытая установка с записью в высоком качестве.</p>
+      </div>
+      <div class="service-card fade-up">
+        <div class="service-icon">💡</div>
+        <h3>Замена фар</h3>
+        <p>Установка новых фар, включая LED, для яркого света.</p>
+      </div>
+      <div class="service-card fade-up">
+        <div class="service-icon">📡</div>
+        <h3>Установка парктроников</h3>
+        <p>Передние и задние парктроники для безопасной парковки.</p>
+      </div>
+      <div class="service-card fade-up">
+        <div class="service-icon">✨</div>
+        <h3>Полировка кузова</h3>
+        <p>Восстановление блеска и защита лакокрасочного покрытия.</p>
+      </div>
+      <div class="service-card fade-up">
+        <div class="service-icon">🖤</div>
+        <h3>Черный потолок</h3>
+        <p>Перетяжка потолка в чёрный цвет для премиального салона.</p>
+      </div>
+      <div class="service-card fade-up">
+        <div class="service-icon">💡</div>
+        <h3>Установка Bi-LED линз</h3>
+        <p>Современные линзы для максимально яркого света.</p>
+      </div>
+      <div class="service-card fade-up">
+        <div class="service-icon">😎</div>
+        <h3>Тонировка</h3>
+        <p>Профессиональная тонировка с соблюдением норм.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <h2 class="section-title fade-up">Почему <span>мы</span></h2>
+    <p class="section-sub fade-up">Качество, которому доверяют</p>
+    <div class="adv-grid">
+      <div class="adv-item fade-up">
+        <h3>5+</h3>
+        <p>Лет опыта</p>
+      </div>
+      <div class="adv-item fade-up">
+        <h3>1000+</h3>
+        <p>Довольных клиентов</p>
+      </div>
+      <div class="adv-item fade-up">
+        <h3>100%</h3>
+        <p>Гарантия качества</p>
+      </div>
+      <div class="adv-item fade-up">
+        <h3>24/7</h3>
+        <p>Онлайн-связь</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="container">
+    <div class="contact-box">
+      <h2 class="section-title fade-up">Свяжитесь <span>с нами</span></h2>
+      <p class="section-sub fade-up">Запишитесь на услугу или задайте вопрос</p>
+      <div class="contact-links">
+        <a href="tel:+79509450388" class="contact-link fade-up">
+          <span>📞</span> +7 950 945 0388
+        </a>
+        <a href="https://t.me/ss_7line" target="_blank" class="contact-link fade-up">
+          <span>✈️</span> @ss_7line
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <svg class="footer-logo" viewBox="0 0 1280 420" xmlns="http://www.w3.org/2000/svg">
+    <g fill="#e6001e">
+      <path d="M 60 340 L 200 340 L 260 210 L 130 210 L 160 140 L 300 140 L 340 60 L 130 60 L 40 260 L 170 260 L 130 340 Z"/>
+    </g>
+    <g fill="#ffffff" font-family="Montserrat, Arial, sans-serif" font-weight="900" font-size="200" letter-spacing="6">
+      <text x="380" y="255">SSTUN</text>
+    </g>
+  </svg>
+  <div>© 2026 SSTUN. Все права защищены.</div>
+</footer>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) entry.target.classList.add('visible');
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
